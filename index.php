@@ -62,7 +62,7 @@
 			} 
 	
 
-			$sql = "INSERT INTO SecretSanta VALUES('$ucid', '$fname', '$lname' ,'$gender','$email','$wish','$comments');";
+			$sql = "INSERT INTO SecretSanta(UCid, FirstName, LastName, Gender, Email, Wish, Comments) VALUES('$ucid', '$fname', '$lname' ,'$gender','$email','$wish','$comments');";
 
 			if ($conn->query($sql) === TRUE) {
     		echo "Thanks for Your Submission!! Your wish stored Successfully. Wait for it to be fullfilled";
@@ -113,7 +113,6 @@
                  echo "0 results"; }
              
              $conn->close();
-	
 
          ?>
 
