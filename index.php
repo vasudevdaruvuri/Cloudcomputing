@@ -92,13 +92,14 @@
              $result = $conn->query($sql);//UCId FirstName LastName  
              if ($result->num_rows > 0) {
             	 echo "<h3> List of Entries </h3>";
-            	 echo "<table border =1 >";
+            	 echo "<table border =1 CELLPADDING=10>";
 				//while($row = mysql_fetch_array($result)){$row = $result->fetch_assoc()
             	 echo "<tr><th>". COUNT ."</th><th>". UCID ."</th><th>".First_Name."</th><th>". Last_Name ."</th><th>". Email ."</th><th>". Comments ."</th><th>". Gender ."</th></tr>";   
             	 $count = 0;
 				while($row    = $result->fetch_assoc())  {				
   					
   					$count++;
+  					$id 	= $row['id'];
 
   					$ucid     = $row['UCId'];
   					$fname    = $row['FirstName'];
@@ -106,7 +107,7 @@
   					$email    = $row['Email'];
   					$gender   = $row['Gender'];
   					$comments = $row['Comments']; 
-  					echo "<tr><td>" .$count. "</td><td>".$ucid."</td><td>".$fname."</td><td>".$lname."</td><td>".$email."</td><td>".$comments."</td><td>".$gender."</td></tr>";   
+  					echo "<tr><td>" .$id. "</td><td>".$ucid."</td><td>".$fname."</td><td>".$lname."</td><td>".$email."</td><td>".$comments."</td><td>".$gender."</td></tr>";   
 					}
  					echo "</table>";
  		 			} else {
