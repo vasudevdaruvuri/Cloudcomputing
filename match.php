@@ -1,4 +1,5 @@
-<!-- <img src="http://www.splanic.com/wp-content/uploads/2014/11/placeholder-header-720px.png" width="250" alt="" style="text-align:centre"> -->
+<DIV><img src="http://www.splanic.com/wp-content/uploads/2014/11/placeholder-header-720px.png" width="250" alt="" style="text-align:centre">
+</DIV>
          <?php
 			 $servername = "localhost";
 			 $username   = "root";
