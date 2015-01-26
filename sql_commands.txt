@@ -1,4 +1,4 @@
-/*USE secretsanta;
+/*USE secretsanta;*/
 DROP TABLE IF EXISTS secretsanta;
 
 CREATE TABLE SecretSanta
@@ -13,6 +13,7 @@ Wish      varchar(255),
 Comments  varchar(255)
 );
 
+/*
 INSERT INTO SecretSanta(UCid, FirstName, LastName, Gender, Email, Wish, Comments)
 	 VALUES( 'UCGFFDSG', 'first_name', 'last_name','mALE','VDARUVURI@GMAIL.COM', 'YOUR WISH','TESTING');
 INSERT INTO SecretSanta VALUES('UCGFFDSW', 'first_name', 'last_name','mALE','VDARUVURI@GMAIL.COM', 'YOUR WISH','TESTING');
@@ -20,7 +21,3 @@ INSERT INTO SecretSanta VALUES('UCGFFDSh', 'first_name', 'last_name','mALE','VDA
 */
 
 DELETE FROM TABLE SecretSanta;
-
-select a.ucid,(select ucid from secretsanta where ucid <> a.ucid limit 1 ) 'match' from secretsanta a ;
-
-SELECT a.ucid FROM secretsanta a ORDER BY RAND() LIMIT 5;
