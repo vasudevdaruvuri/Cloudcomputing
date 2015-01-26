@@ -44,7 +44,7 @@
 	$lname    = $_POST["lname"];
 	$email    = $_POST["email"];
 	$gender   = $_POST["gender"];
-	$wish     = $_POST["wishlist"];
+	$wish     = $_POST["wish"];
 	$comments = $_POST["Comments"];
 
 
