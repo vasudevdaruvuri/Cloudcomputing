@@ -1,54 +1,74 @@
-<DIV><img src="http://www.splanic.com/wp-content/uploads/2014/11/placeholder-header-720px.png" width="250" alt="" style="text-align:centre">
-</DIV>
-         <?php
-			 $servername = "localhost";
-			 $username   = "root";
-			 $password   = "";
-			 $dbname     = "secretsanta";
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+
+  </script>
+  <link rel="stylesheet" href="styles.css"> 
+  <?php
+    // Turn off all error reporting
+  error_reporting(0);
+  ?>
+</head>
+<body >
+  <div class="wrap">
+    <div class="title-area">
+      <h1 class="site-title" itemprop="headline">SecretSanta</h1>
+      <h3 class="site-description"><span>Because Suprises are fun</span></h3>
+    </div>
+  </div>
+<div class="resultcontainer">
+  <?php
+  $servername = "localhost";
+  $username   = "root";
+  $password   = "";
+  $dbname     = "secretsanta";
 
              // Create connection
-             $conn = new mysqli($servername, $username, $password, $dbname);
+  $conn = new mysqli($servername, $username, $password, $dbname);
              // Check connection
-             if ($conn->connect_error) {
-                 die("Connection failed: " . $conn->connect_error);
-             } 
-            
-             
-             $sql = "SELECT * from  SecretSanta;";
-             $revsql = "SELECT * from  SecretSanta ORDER by id DESC;";
-             $result = $conn->query($sql);//UCId FirstName LastName 
-             $reverseResult = $conn->query($revsql);//UCId FirstName LastName 
-             if ($result->num_rows > 0) {
-            	 echo "<div  ><table border =1 CELLPADDING=10 style = \"float:left\">"
-            	 ?>
-            	 <tr><th>Santa</th></tr>
-            	 <?php 
+  if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+ } 
 
-				while($row= $result->fetch_assoc())  {				
+ $array = array();
+ $match = array();
+ $sql = "SELECT * from  SecretSanta;";
+ $revsql = "SELECT * from  SecretSanta ORDER by id DESC;";
+  $result = $conn->query($sql);//UCId FirstName LastName 
+  $reverseResult = $conn->query($revsql);//UCId FirstName LastName 
 
-  					$fname    = $row['FirstName'];
-  					$lname    = $row['LastName'];
-  					echo "<tr><td>".$fname. " ". $lname ."</td></tr>";  
-					}
- 					echo "</table>";
- 		 			} else {
-                 echo "0 results"; }
-              if ($reverseResult->num_rows > 0) {
-            	 echo "<table border =1 CELLPADDING=10>";
-            	 ?>
-            	 <tr><th>Person</th></tr>
-            	 <?php 
+  
 
-				while($revRow= $reverseResult->fetch_assoc())  {				
+  if ($result->num_rows > 0) {
 
-  					$fname    = $revRow['FirstName'];
-  					$lname    = $revRow['LastName'];
-  					echo "<tr><td>".$fname. " ". $lname ."</td></tr>";   
-					}
- 					echo "</table> </div>";
- 		 			} else {
-                 echo "0 results"; }
-             
-             $conn->close();
+    while($row= $result->fetch_assoc())  {	
+      array_push($array, $row['FirstName']);			
+    }
 
-         ?>
+
+
+  // array_push($match, array('Password' => 'pass'));
+    echo "<div  class = 'result'><table class = 'matchmaker santared' border =1 CELLPADDING=10 >";
+    echo " <tr><th>Santa</th><th>Match</th></tr>";
+    $orignalArray = $array;
+
+    shuffle ( $array );
+
+    foreach (array_combine($orignalArray, $array) as $name => $match) {
+      echo "<tr><td>".$name. "</td><td> ". $match ."</td></tr>"; 
+    }
+    echo "</table>";
+
+  } else {
+   echo "0 results"; }
+
+   $conn->close();
+
+   ?>
+   </div>
+<div style="clear:both">
+   <button onclick="location.href = 'secretsanta.php';" id="myButton" class="float-left submit-button" >Go Back</button>
+</div>
+</body>

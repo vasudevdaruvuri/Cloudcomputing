@@ -1,0 +1,61 @@
+body{
+	margin-left: 12px;
+	margin-right: 12px;
+}
+.wrap {
+	padding: 40px 0;
+}
+
+.title-area {
+	font-weight: 700;
+	padding: 16px 0;
+	text-align: center;
+}
+
+.site-title {
+	font-size: 45px;
+	line-height: 1;
+	margin: 0 0 8px;
+}
+
+.site-description {
+	color: #666;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1;
+	margin: 0;
+}
+
+.santared {
+	background: darkred;
+	border: 3px dashed whitesmoke;
+	margin: 4px;
+}
+
+.santared .heading {
+	color: cornsilk;
+	text-align: center;
+}
+.santared th, .santared tr {
+	color: cornsilk;
+	text-align: center;
+}
+#form1{
+	text-align: center;
+}
+.matchmaker {
+	position: absolute;
+	/*top:50%;*/
+	left:44%; 
+}
+.showmatch{
+	font-size: 40px;
+	background-color: brown;
+	color: aliceblue;
+}
+.thanks{
+	text-align: center;
+	color: brown;
+	font-family: cursive;
+	font-size: 16px;
+}
